@@ -25,29 +25,29 @@ export const sliderItems = [
   export const categories = [
     {
       id: 1,
-      img: "https://images.pexels.com/photos/5886041/pexels-photo-5886041.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "SHIRT STYLE!",
+      img: "https://image.brazilianbikinishop.com/images/products/facemasks-blueman-face-mask-bbs35-0.jpg",
+      title: "หน้ากากอนามัย",
     },
     {
       id: 2,
       img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "LOUNGEWEAR LOVE",
+      title: "เจลแอลกอฮอล์",
     },
     {
       id: 3,
       img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "LIGHT JACKETS",
+      title: "อุปกรณ์ทางการแพทย์",
     },
   ];
 
   export const popularProducts = [
     {
       id:1,
-      img:"https://d3o2e4jr3mxnm3.cloudfront.net/Mens-Jake-Guitar-Vintage-Crusher-Tee_68382_1_lg.png",
+      img:"https://i1.wp.com/www.imarketthailand.com/wp-content/uploads/2021/02/KF94-Mask-Black.png?fit=2000%2C2000&ssl=1",
     },
     {
       id:2,
-      img:"https://cdn.shopify.com/s/files/1/0101/4832/products/Angela_Natural_Tee.png?v=1606780388",
+      img:"https://www.prachachat.net/wp-content/uploads/2020/12/%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%81%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%9E%E0%B8%97%E0%B8%A2%E0%B9%8C-e1608524012773.png",
     },
     {
       id:3,

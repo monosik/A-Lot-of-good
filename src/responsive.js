@@ -7,3 +7,11 @@ export const mobile = (props) => {
     }
     `;
 }
+
+export const iphone10 = (props) => {
+    return css`
+    @media only screen and (max-width: 420px) {
+        ${props}
+    }
+    `;
+}

@@ -3,24 +3,29 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { Search } from '@material-ui/icons'
 import React from 'react'
 import styled from 'styled-components'
-import { mobile } from '../responsive';
+import { mobile, iphone10 } from '../responsive';
+import './Navbar.css'
 
 const Container = styled.div `
-    height: 80px;
-    ${mobile({ height: "50px"})}
+    height: 70px;
+    position: sticky;
+    ${mobile({ height: "20px", margin: "30px none"})}
+    ${iphone10({ height: "20px", margin: "30px none"})}
 `
 
 const Wrapper = styled.div `
-    padding: 10px 20px;
+    padding: 5px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: sticky;
     ${mobile({ padding: "10px 0px"})}
 `
 const Left = styled.div `
     flex: 1;
     display: flex;
     align-items: center;
+    
 `
 
 const Language = styled.span`
@@ -36,26 +41,27 @@ const SearchContainer = styled.div `
     margin-left: 25px;
     padding: 5px;
 `
-const Inout = styled.input`
+const Input = styled.input`
     border: none;
-    ${mobile({ width: "50px" })}
+    ${mobile({ width: "50px", border: "none" })}
 `
 
 const Logo = styled.h1`
     font-weight: bold;
-    ${mobile({ fontSize: "14px" })}
+    ${mobile({ fontSize: "12px" })}
 `
 
 const Center = styled.div `
     flex: 1;
     text-align: center;
+    ${mobile({ })}
 `
 const Right = styled.div `
     flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    ${mobile({ flex: 2, justifyContent: "center" })}
+    ${mobile({ flex: 2, justifyContent: "flex-end" })}
 `
 
 const MenuItem = styled.div`
@@ -67,18 +73,16 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
     return (
-        <Container>
+        <Container className="navbar">
             <Wrapper>
                 <Left>
-                    <Language>EN</Language>
                     <SearchContainer>
-                        <Inout placeholder="search"/>
-                        <Search style={{color: "gray", fontSize:16}}/>
+                        <Input placeholder="search" style={{border: "none"}}/>
+                        <Search style={{color: "gray", fontSize:16, border: "none"}}/>
                     </SearchContainer>
                 </Left> 
                 <Center><Logo>A Lot Of Good.</Logo></Center>
                 <Right>
-                    <MenuItem>REGISTER</MenuItem>
                     <MenuItem>SIGN IN</MenuItem>
                     <MenuItem>
                         <Badge badgeContent={4} color="primary">

@@ -65,11 +65,11 @@ const FilterSize = styled.select`
 `
 const FilterSizeOption = styled.option``;
 
-const Product = () =>  {
+const ProductDetail = () =>  {
     return (
         <Container>
-            <Navbar/>
             <Announcement/>
+            <Navbar/>
             <Wrapper>
                 <ImgContainer>
                     <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
@@ -104,4 +104,4 @@ const Product = () =>  {
     )
 }
 
-export default Product
+export default ProductDetail
