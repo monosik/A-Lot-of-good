@@ -4,6 +4,7 @@ import { categories } from '../data'
 import { mobile } from '../responsive'
 import CategoryItem from './CategoryItem'
 
+
 const Container = styled.div`
     display: flex;
     padding: 20px;

@@ -3,7 +3,6 @@
     top: 0;
     position: -webkit-sticky;
     background: transparent;
-    background-color: #fcf5f5;
-    height: 70px;
+    height: 60px;
     z-index: 1;
 }

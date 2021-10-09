@@ -9,10 +9,12 @@ import { Link } from 'react-router-dom'
 import Sticky from "react-sticky-el";
 
 const Container = styled.div`
-    height: 60px;
+    height: 70px;
     position: sticky;
+    top: 0;
     position: -webkit-sticky;
-    z-index: 2;
+    background: white;
+    z-index: 999;
     ${mobile({ height: "50px" })}
 `;
 
@@ -40,7 +42,7 @@ const SearchContainer = styled.div`
 `;
 
 const Input = styled.input`
-    border: none;
+    border: 0px;
     ${mobile({ width: "50px" })}
 `;
 
@@ -70,12 +72,11 @@ const MenuItem = styled.div`
 
 const Navbar = () => {
     return (
-        <Sticky>
             <Container>
             <Wrapper>
                 <Left>
                     <SearchContainer>
-                        <Input placeholder="Search" / >
+                        <Input placeholder="Search" />
                         <Search style={{ color: "gray", fontSize: 16 }} />
                     </SearchContainer>
                 </Left>
@@ -93,7 +94,6 @@ const Navbar = () => {
                 </Right>
             </Wrapper>
         </Container>
-        </Sticky>
         
     );
 };

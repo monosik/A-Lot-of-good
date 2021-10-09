@@ -9,8 +9,8 @@ import Newsletter from '../components/Newsletter'
 function Home() {
     return (
         <div className="home">
-            <Announcement/>
             <Navbar/>
+            <Announcement/>
             <Slider/>
             <Categories/>
             <Products/>
