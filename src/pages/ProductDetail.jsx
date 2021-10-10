@@ -5,7 +5,6 @@ import Newsletter from '../components/Newsletter';
 import { mobile } from '../responsive';
 import { Table, Button } from 'react-bootstrap';
 
-
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -88,79 +87,106 @@ const LinkButton = styled.button`
 `
 
 
+
 const FilterSizeOption = styled.option``;
 
 const ProductDetail = () =>  {
     return (
-        <Container>
-            <Announcement/>
-            <Navbar/>
-            <Wrapper>
-                <ImgContainer>
-                    <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
-                </ImgContainer>
-                <InfoContainer>
-                    <Title>Denim Jumpsuit</Title>
-                    <Desc>
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque tempore nesciunt fuga error. Illum, tempore voluptatem? Repellendus dolorum, commodi, nobis eligendi fugiat praesentium aliquam voluptatem possimus beatae sit assumenda alias.
-                    </Desc>
-                    <Price>$20</Price>
+      <Container>
+        <Announcement />
+        <Navbar />
+        <Wrapper>
+          <ImgContainer>
+            <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          </ImgContainer>
+          <InfoContainer>
+            <Title>Denim Jumpsuit</Title>
+            <Desc>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              Doloremque tempore nesciunt fuga error. Illum, tempore voluptatem?
+              Repellendus dolorum, commodi, nobis eligendi fugiat praesentium
+              aliquam voluptatem possimus beatae sit assumenda alias.
+            </Desc>
+            <Price>$20</Price>
 
-                    <FilterContainer>
-                        <Filter>
-                            <FilterTitle>Color</FilterTitle>
-                        </Filter>
+            <FilterContainer>
+              <Filter>
+                <FilterTitle>Color</FilterTitle>
+              </Filter>
 
-                        <Filter>
-                        <FilterTitle>Size</FilterTitle>
-                            <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
-                                <FilterSizeOption>S</FilterSizeOption>
-                                <FilterSizeOption>M</FilterSizeOption>
-                                <FilterSizeOption>L</FilterSizeOption>
-                                <FilterSizeOption>XL</FilterSizeOption>
-                            </FilterSize>
-                        </Filter>
-                    </FilterContainer>
-                    <Title>Compare Price</Title>
-                    <Table striped bordered hover>
-                    <thead style={{textAlign: 'center', backgroundColor: 'teal', color: 'white'}}>
-                        <tr>
-                            <th>Shop</th>
-                            <th>Date(D/M/Y)</th>
-                            <th>Price(Baht)</th>
-                            <th>Shipping(Baht)</th>
-                            <th>Link</th>
-                        </tr>
-                    </thead>
-                    <tbody style={{textAlign: 'center'}}>
-                        <tr>
-                            <td><IcoLogo src="https://th-live-05.slatic.net/p/bc9077fb180fdbc8d479c51e1d7ef01f.jpg_720x720q80.jpg_.webp" /></td>
-                            <td>9/10/2021</td>
-                            <td>20</td>
-                            <td>40</td>
-                            <td><LinkButton>Click to Shop</LinkButton></td>
-                        </tr>
-                        <tr>
-                            <td><IcoLogo src="https://i1.pngguru.com/preview/74/572/54/nike-air-logo-shopee-online-shopping-goods-sales-retail-ecommerce-shopping-centre-png-clipart.jpg"/></td>
-                            <td>9/10/2021</td>
-                            <td>20</td>
-                            <td>40</td>
-                            <td><LinkButton>Click to Shop</LinkButton></td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td colSpan="2">Larry the Bird</td>
-                            <td colSpan="2">@twitter</td>
-                        </tr>
-                    </tbody>
-                    </Table>
-                </InfoContainer>
-                
-            </Wrapper>
-            <Newsletter/>
-        </Container>
-    )
+              <Filter>
+                <FilterTitle>Size</FilterTitle>
+                <FilterSize>
+                  <FilterSizeOption>XS</FilterSizeOption>
+                  <FilterSizeOption>S</FilterSizeOption>
+                  <FilterSizeOption>M</FilterSizeOption>
+                  <FilterSizeOption>L</FilterSizeOption>
+                  <FilterSizeOption>XL</FilterSizeOption>
+                </FilterSize>
+              </Filter>
+            </FilterContainer>
+            <Title>Compare Price</Title>
+            <Table striped bordered hover>
+              <thead
+                style={{
+                  textAlign: "center",
+                  backgroundColor: "teal",
+                  color: "white",
+                }}
+                >
+                <tr>
+                        <th>Shop</th>
+                        <th>Date(D/M/Y)</th>
+                        <th>Price(Baht)</th>
+                        <th>Shipping(Baht)</th>
+                        <th>Link</th>
+                    </tr>
+                </thead>
+                <tbody style={{ textAlign: "center" }}>
+                    <tr>
+                    <td>
+                        <IcoLogo src="https://th-live-05.slatic.net/p/bc9077fb180fdbc8d479c51e1d7ef01f.jpg_720x720q80.jpg_.webp" />
+                    </td>
+                        <td>9/10/2021</td>
+                        <td>20</td>
+                        <td>40</td>
+                    <td>
+                        <LinkButton
+                            onClick={() => window.open("https://www.lazada.co.th/")}
+                            target="_blank"
+                        >
+                            Click to Shop
+                        </LinkButton>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <IcoLogo src="https://i1.pngguru.com/preview/74/572/54/nike-air-logo-shopee-online-shopping-goods-sales-retail-ecommerce-shopping-centre-png-clipart.jpg" />
+                    </td>
+                        <td>9/10/2021</td>
+                        <td>20</td>
+                        <td>40</td>
+                    <td>
+                        <LinkButton
+                            onClick={() => window.open("https://shopee.co.th/")}
+                            target="_blank"
+                        >
+                            Click to Shop
+                        </LinkButton>
+                  </td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td colSpan="2">Larry the Bird</td>
+                  <td colSpan="2">@twitter</td>
+                </tr>
+              </tbody>
+            </Table>
+          </InfoContainer>
+        </Wrapper>
+        <Newsletter />
+      </Container>
+    );
 }
 
 export default ProductDetail

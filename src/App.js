@@ -13,6 +13,7 @@ function App() {
           <Route path="/productlist" exact component={ProductList}/>
           <Route path="/productlist/:id" component={ProductDetail}/>
           <Route path="/cart" component={Cart}/>
+          
         </Switch>
       </div>
     </Router>
