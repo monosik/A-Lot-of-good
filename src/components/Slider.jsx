@@ -6,11 +6,11 @@ import { mobile } from '../responsive';
 
 const Container = styled.div`
     width: 100%;
-    height: 100vh;
+    height: 25vh;
     display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({ height: "20vh" })}
+    ${mobile({ height: "none" })}
 `
 
 const Arrow = styled.div`
@@ -41,24 +41,29 @@ const Wrapper = styled.div`
 
 const Slide = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 25vh;
     display: flex;
     align-items: center;
     background-color: #${props=>props.bg};
 `
 
 const ImgContainer = styled.div`
-    height: 80%
-    flex: 1;
-`
+  height: 100%;
+  width: 50%
+  display: flex;
+  flex: 3.5;
+  align-items: stretch;
+`;
 
 const Image = styled.img`
-    height: 80%
+    aspect-ratio: 4 / 3;
+    height: 100%;
+    width: 100%;
     ${mobile({ padding: "0px", flexDirection: "column"})}
 `
 
 const InfoContainer = styled.div`
-    flex: 1;
+    flex: 4;
     padding: 50px;
 `
 
@@ -104,33 +109,31 @@ function Slider() {
                         <InfoContainer>
                             <Title>{item.title}</Title>
                             <Desc>{item.desc}</Desc>
-                            <Button>SHOW NOW</Button>
+                            <Button>WATCH NOW</Button>
                         </InfoContainer>
                     </Slide>
                 ))}
                 
+                {sliderItems.map(item=> (
+                    <Slide bg="fcf1ed" key={item.id}>
+                        <InfoContainer>
+                            <Title>{item.title}</Title>
+                            <Desc>{item.desc}</Desc>
+                            <Button>WATCH NOW</Button>
+                        </InfoContainer>
+                    </Slide>
+                ))}
 
-                <Slide bg="fcf1ed">
-                    <ImgContainer>
-                        <Image src= "https://i.ibb.co/XsdmR2c/1.png"/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>WINTER SALE</Title>
-                        <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                        <Button>SHOW NOW</Button>
-                    </InfoContainer>
-                </Slide>
+                {sliderItems.map(item=> (
+                    <Slide bg="fbf0f4" key={item.id}>
+                        <InfoContainer>
+                            <Title>{item.title}</Title>
+                            <Desc>{item.desc}</Desc>
+                            <Button>WATCH NOW</Button>
+                        </InfoContainer>
+                    </Slide>
+                ))}
 
-                <Slide bg="fbf0f4">
-                    <ImgContainer>
-                        <Image src= "https://i.ibb.co/XsdmR2c/1.png"/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>SUMMER SALE</Title>
-                        <Desc>DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.</Desc>
-                        <Button>SHOW NOW</Button>
-                    </InfoContainer>
-                </Slide>
             </Wrapper>
             <Arrow direction="right" onClick={() => handleClick("right")}>
                 <KeyboardArrowRight/>

@@ -1,76 +1,84 @@
 export const sliderItems = [
-    {
-      id: 1,
-      img: "https://i.ibb.co/XsdmR2c/1.png",
-      title: "SUMMER SALE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "f5fafd",
-    },
-    {
-      id: 2,
-      img: "https://i.ibb.co/DG69bQ4/2.png",
-      title: "AUTUMN COLLECTION",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fcf1ed",
-    },
-    {
-      id: 3,
-      img: "https://i.ibb.co/cXFnLLV/3.png",
-      title: "LOUNGEWEAR LOVE",
-      desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
-      bg: "fbf0f4",
-    },
-  ];
+  {
+    id: 1,
+    img: "https://7wallpapers.net/wp-content/uploads/Venom-2-7.jpg?fbclid=IwAR2HaqMB7GCHNvOUsBOx4TtV42ECGkqukGb0hEhrQgJtnc4gVXnYtaAmmzY",
+    title: "VENOM 2",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "f5fafd",
+  },
+  {
+    id: 2,
+    img: "https://pbs.twimg.com/media/E8-IIBbVkAEKomT.jpg",
+    title: "SHANG-CHI",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "fcf1ed",
+  },
+  {
+    id: 3,
+    img: "https://c.wallhere.com/photos/da/77/Robert_Pattinson_The_Batman_2021_movies_artwork_Batman_red_red_background-1951245.jpg!d",
+    title: "THE BATMAN",
+    desc: "DON'T COMPROMISE ON STYLE! GET FLAT 30% OFF FOR NEW ARRIVALS.",
+    bg: "fbf0f4",
+  },
+];
 
   export const categories = [
     {
       id: 1,
-      img: "https://image.brazilianbikinishop.com/images/products/facemasks-blueman-face-mask-bbs35-0.jpg",
-      title: "หน้ากากอนามัย",
+      img: "https://www.recovery4life.co.uk/wp-content/uploads/2020/11/COVID-Rapid-Antigen-kit-scaled.jpg",
+      title: "Indoor Item",
+      cate: "Indoor",
     },
     {
       id: 2,
-      img: "https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-      title: "เจลแอลกอฮอล์",
+      img: "https://bgr.com/wp-content/uploads/2020/08/hand-sanitizer.jpg?quality=70&strip=all",
+      title: "Sanitizer",
+      cate: "Sanitizer",
     },
     {
       id: 3,
-      img: "https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500",
-      title: "อุปกรณ์ทางการแพทย์",
+      img: "https://www.rushu.rush.edu/sites/default/files/images/news-articles/surgical-masks.jpg",
+      title: "Medical Tools",
+      cate: "Medical-tools",
     },
+    // https://www.recovery4life.co.uk/wp-content/uploads/2020/11/COVID-Rapid-Antigen-kit-scaled.jpg
+
+    // https://bgr.com/wp-content/uploads/2020/08/hand-sanitizer.jpg?quality=70&strip=all
+
+    // https://www.rushu.rush.edu/sites/default/files/images/news-articles/surgical-masks.jpg
   ];
 
-  export const popularProducts = [
-    {
-      id:1,
-      img:"https://i1.wp.com/www.imarketthailand.com/wp-content/uploads/2021/02/KF94-Mask-Black.png?fit=2000%2C2000&ssl=1",
-    },
-    {
-      id:2,
-      img:"https://www.prachachat.net/wp-content/uploads/2020/12/%E0%B8%AB%E0%B8%99%E0%B9%89%E0%B8%B2%E0%B8%81%E0%B8%B2%E0%B8%81%E0%B8%97%E0%B8%B2%E0%B8%87%E0%B8%81%E0%B8%B2%E0%B8%A3%E0%B9%81%E0%B8%9E%E0%B8%97%E0%B8%A2%E0%B9%8C-e1608524012773.png",
-    },
-    {
-      id:3,
-      img:"https://www.prada.com/content/dam/pradanux_products/U/UCS/UCS319/1YOTF010O/UCS319_1YOT_F010O_S_182_SLF.png",
-    },
-    {
-      id:4,
-      img:"https://www.burdastyle.com/pub/media/catalog/product/cache/7bd3727382ce0a860b68816435d76e26/107/BUS-PAT-BURTE-1320516/1170x1470_BS_2016_05_132_front.png",
-    },
-    {
-      id:5,
-      img:"https://images.ctfassets.net/5gvckmvm9289/3BlDoZxSSjqAvv1jBJP7TH/65f9a95484117730ace42abf64e89572/Noissue-x-Creatsy-Tote-Bag-Mockup-Bundle-_4_-2.png",
-    },
-    {
-      id:6,
-      img:"https://d3o2e4jr3mxnm3.cloudfront.net/Rocket-Vintage-Chill-Cap_66374_1_lg.png",
-    },
-    {
-      id:7,
-      img:"https://www.vintageindustries.nl/download_front/qympzk1762/2217_Arrow_Jacket_Forest.png",
-    },
-    {
-      id:8,
-      img:"https://www.pngarts.com/files/3/Women-Jacket-PNG-High-Quality-Image.png",
-    },
-  ]
+  // export const popularProducts = [
+  //   {
+  //     id:1,
+  //     img:"https://th-live-05.slatic.net/p/1383ea2748a593660f32339857e403eb.jpg_720x720q80.jpg_.webp",
+  //   },
+  //   {
+  //     id:2,
+  //     img:"https://th-live-05.slatic.net/p/702a12a9a67dd18ead9ab60c0048406b.png_720x720q80.jpg_.webp",
+  //   },
+  //   {
+  //     id:3,
+  //     img:"https://th-live-02.slatic.net/p/79876221b8b9bf495172a29024e27ce8.jpg",
+  //   },
+  //   {
+  //     id:4,
+  //     img:"https://th-live-05.slatic.net/p/86c3763f627859adb5a2911c47099aee.jpg_2200x2200q80.jpg_.webp",
+  //   },
+  //   {
+  //     id:5,
+  //     img:"https://cf.shopee.co.th/file/6931ea2d8b73fd469c14599efe149789",
+  //   },
+  //   {
+  //     id:6,
+  //     img:"https://th-live-02.slatic.net/p/e29853c6ee243283da070a4f9088c2fe.jpg",
+  //   },
+  //   {
+  //     id:7,
+  //     img:"https://th-live-05.slatic.net/p/4fd7ce3bbaa7eade4e195368eaffb5ab.jpg_2200x2200q80.jpg_.webp",
+  //   },
+  //   {
+  //     id:8,
+  //     img:"https://th-live-05.slatic.net/p/692196ba1bbe06231aa1d970946619d8.jpg_2200x2200q80.jpg_.webp",
+  //   },
+  // ]

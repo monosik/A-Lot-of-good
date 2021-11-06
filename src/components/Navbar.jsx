@@ -6,16 +6,16 @@ import styled from "styled-components";
 import { mobile } from "../responsive";
 import './Navbar.css'
 import { Link } from 'react-router-dom'
-import Sticky from "react-sticky-el";
+import { useSelector } from "react-redux"
 
 const Container = styled.div`
-    height: 70px;
-    position: sticky;
-    top: 0;
-    position: -webkit-sticky;
-    background: white;
-    z-index: 999;
-    ${mobile({ height: "50px" })}
+  height: 70px;
+  position: sticky;
+  top: 0;
+  position: -webkit-sticky;
+  background: #F5CAC3;
+  z-index: 999;
+  ${mobile({ height: "50px" })}
 `;
 
 const Wrapper = styled.div`
@@ -39,6 +39,7 @@ const SearchContainer = styled.div`
     align-items: center;
     margin-left: 25px;
     padding: 5px;
+    background: #e5e5e5;
 `;
 
 const Input = styled.input`
@@ -52,9 +53,21 @@ const Center = styled.div`
 `;
 
 const Logo = styled.h1`
-    font-weight: bold;
-    ${mobile({ fontSize: "24px" })}
+  font-weight: bold;
+  cursor: pointer;
+  textdecoration: "none";
+  color: "black";
+  ${mobile({ fontSize: "24px" })};
+  a:link, a:visited{
+    color: black;
+    text-decoration: none;
+  }
+  a:hover, a:active {
+    color: black;
+    text-decoration: none;
+  }
 `;
+
 const Right = styled.div`
     flex: 1;
     display: flex;
@@ -66,35 +79,44 @@ const Right = styled.div`
 const MenuItem = styled.div`
     font-size: 14px;
     cursor: pointer;
+    color: black;
     margin-left: 25px;
     ${mobile({ fontSize: "12px", marginLeft: "10px" })}
 `;
 
 const Navbar = () => {
+    const quantity = useSelector(state => state.cart.quantity)
+
     return (
-            <Container>
-            <Wrapper>
-                <Left>
-                    <SearchContainer>
-                        <Input placeholder="Search" />
-                        <Search style={{ color: "gray", fontSize: 16 }} />
-                    </SearchContainer>
-                </Left>
-                <Center>
-                    <Logo>A Lot Of Good</Logo>
-                </Center>
-                <Right>
+      <Container>
+        <Wrapper>
+          <Left>
+            <SearchContainer>
+              <Input placeholder="Search" />
+              <Search style={{ color: "gray", fontSize: 16 }} />
+            </SearchContainer>
+          </Left>
+          <Center>
+            <Logo>
+                <a href='/'>
+                    A Lot Of Goods
+                </a>
+            </Logo>
+          </Center>
+          <Right>
+            {/* <Link to={`/login`} style={{ textDecoration: 'none' }}>
+                    <MenuItem>LOGIN</MenuItem>
+                    </Link>
                     <MenuItem>
                         <Link to={`/cart`} style={{ textDecoration: 'none' }}>
-                            <Badge badgeContent={4} color="primary">
+                            <Badge badgeContent={quantity} color="primary">
                                 <ShoppingCartOutlinedIcon/>
                             </Badge>
                         </Link>
-                    </MenuItem>
-                </Right>
-            </Wrapper>
-        </Container>
-        
+                    </MenuItem> */}
+          </Right>
+        </Wrapper>
+      </Container>
     );
 };
 

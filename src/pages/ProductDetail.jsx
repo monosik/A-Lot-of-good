@@ -1,9 +1,16 @@
 import styled from 'styled-components';
+import {useState, useEffect} from 'react';
 import Announcement from '../components/Announcement';
 import Navbar from '../components/Navbar';
 import Newsletter from '../components/Newsletter';
+import Footer from '../components/Footer'
 import { mobile } from '../responsive';
-import { Table, Button } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
+import {useLocation} from "react-router-dom"
+import axios from 'axios';
+import {addProduct} from "../redux/cartRedux"
+import { useDispatch } from 'react-redux';
+import {publicRequest} from "../requestMethods";
 
 const Container = styled.div``;
 
@@ -25,8 +32,8 @@ const Image = styled.img`
 `;
 
 const IcoLogo = styled.img`
-    width: 30px;
-    height: 30px;
+    width: 100px;
+    height: 100px;
     image-align: center;
     object-fit: cover;  
     ${mobile({ height: "40vh"})}
@@ -69,10 +76,33 @@ const FilterTitle = styled.div`
     font-weight: 200;
 `;
 
-const FilterSize = styled.select`
-    margin-left: 10px;
-    padding: 5px;
+const FilterColor = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin: 0px 5px;
+  cursor: pointer;
 `;
+
+const FilterSize = styled.select`
+  margin-left: 10px;
+  padding: 5px;
+`;
+
+const FilterText = styled.span`
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 20px;
+    ${mobile({ marginRight: "0px" })}
+`
+
+const Select = styled.select`
+    padding: 10px;
+    margin-right: 20px;
+    ${mobile({ margin: "10px 0px" })}
+`
+
+const Option = styled.option``;
 
 const LinkButton = styled.button`
     background: cover; 
@@ -84,48 +114,111 @@ const LinkButton = styled.button`
         background-color: #008c68;
         transform: scale(1.1);
     }
-`
+`;
 
+const AddContainer = styled.div`
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ${mobile({ width: "100%" })}
+`;
 
-
-const FilterSizeOption = styled.option``;
+const Button = styled.button`
+  padding: 15px;
+  border: 2px solid teal;
+  background-color: white;
+  cursor: pointer;
+  font-weight: 500;
+  &:hover {
+    background-color: #f8f4f4;
+  }
+`;
 
 const ProductDetail = () =>  {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
+    const [filters, setFilters] = useState({});
+    const [sort, setSort] = useState("newest");
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+      const getProducts = async () => {
+        try{
+        const res = await publicRequest.get("/products/find/" + id)
+        setProduct(res.data);
+      }catch{}
+      };
+      getProducts()
+    }, [id]);
+
+    const handleClick =() => {
+      //update wishlist
+      dispatch(addProduct({...product, quantity}));
+      
+    }
+    const handleFilters = (e) => {
+      const value = e.target.value;
+      setFilters({
+          ...filters,
+          [e.target.name] : value,
+      });
+  };
+
     return (
       <Container>
         <Announcement />
         <Navbar />
         <Wrapper>
           <ImgContainer>
-            <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+            <Image src={product.img} />
           </ImgContainer>
           <InfoContainer>
-            <Title>Denim Jumpsuit</Title>
-            <Desc>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              Doloremque tempore nesciunt fuga error. Illum, tempore voluptatem?
-              Repellendus dolorum, commodi, nobis eligendi fugiat praesentium
-              aliquam voluptatem possimus beatae sit assumenda alias.
-            </Desc>
-            <Price>$20</Price>
+            <Title>{product.title}</Title>
+            <Desc>{product.desc}</Desc>
+            <Price>Price {product.price} Bath</Price><br/>
+            <Price>Shipping {product.shipping} Bath</Price>
 
-            <FilterContainer>
+            {/* <FilterContainer>
               <Filter>
-                <FilterTitle>Color</FilterTitle>
+                <FilterText>Filter Products</FilterText>
+                <Select name="color" onChange={handleFilters}>
+                  <Option disabled>Color</Option>
+                  <Option>white</Option>
+                  <Option>black</Option>
+                  <Option>red</Option>
+                  <Option>blue</Option>
+                  <Option>yellow</Option>
+                  <Option>green</Option>
+                </Select>
+
+                <Select name="size" onChange={handleFilters}>
+                  <Option disabled>Size</Option>
+                  <Option>XS</Option>
+                  <Option>S</Option>
+                  <Option>M</Option>
+                  <Option>L</Option>
+                  <Option>XL</Option>
+                </Select>
               </Filter>
 
               <Filter>
                 <FilterTitle>Size</FilterTitle>
                 <FilterSize>
-                  <FilterSizeOption>XS</FilterSizeOption>
-                  <FilterSizeOption>S</FilterSizeOption>
-                  <FilterSizeOption>M</FilterSizeOption>
-                  <FilterSizeOption>L</FilterSizeOption>
-                  <FilterSizeOption>XL</FilterSizeOption>
+                  
                 </FilterSize>
-              </Filter>
-            </FilterContainer>
-            <Title>Compare Price</Title>
+              </Filter> 
+            </FilterContainer> */}
+
+            <AddContainer>
+              <Button onClick={() => window.open(product.thisLink[0])}
+                      target="_blank"
+              >Go to Shop</Button>
+            </AddContainer>
+
+            <Title>Other shop compare price</Title>
             <Table striped bordered hover>
               <thead
                 style={{
@@ -133,58 +226,85 @@ const ProductDetail = () =>  {
                   backgroundColor: "teal",
                   color: "white",
                 }}
-                >
+              >
                 <tr>
-                        <th>Shop</th>
-                        <th>Date(D/M/Y)</th>
-                        <th>Price(Baht)</th>
-                        <th>Shipping(Baht)</th>
-                        <th>Link</th>
-                    </tr>
-                </thead>
-                <tbody style={{ textAlign: "center" }}>
-                    <tr>
-                    <td>
-                        <IcoLogo src="https://th-live-05.slatic.net/p/bc9077fb180fdbc8d479c51e1d7ef01f.jpg_720x720q80.jpg_.webp" />
-                    </td>
-                        <td>9/10/2021</td>
-                        <td>20</td>
-                        <td>40</td>
-                    <td>
-                        <LinkButton
-                            onClick={() => window.open("https://www.lazada.co.th/")}
-                            target="_blank"
-                        >
-                            Click to Shop
-                        </LinkButton>
-                    </td>
+                  <th>Product Preview</th>
+                  <th>Price(Baht)</th>
+                  <th>Shipping(Baht)</th>
+                  <th>Link</th>
                 </tr>
+              </thead>
+              <tbody style={{ textAlign: "center" }}>
                 <tr>
-                    <td>
-                        <IcoLogo src="https://i1.pngguru.com/preview/74/572/54/nike-air-logo-shopee-online-shopping-goods-sales-retail-ecommerce-shopping-centre-png-clipart.jpg" />
-                    </td>
-                        <td>9/10/2021</td>
-                        <td>20</td>
-                        <td>40</td>
-                    <td>
-                        <LinkButton
-                            onClick={() => window.open("https://shopee.co.th/")}
-                            target="_blank"
-                        >
-                            Click to Shop
-                        </LinkButton>
+                  <td>
+                    <IcoLogo src={product.shopImg[0]} alt="" /> 
+                  </td> 
+                  <td>{product.otherPrice[0][0]}</td>
+                  <td>{product.otherPrice[0][1]}</td>
+                  <td>
+                    <LinkButton
+                      onClick={() => window.open(product.shopLink[0])}
+                      target="_blank"
+                    >
+                      Click to Shop
+                    </LinkButton>
                   </td>
                 </tr>
+
                 <tr>
-                  <td>3</td>
-                  <td colSpan="2">Larry the Bird</td>
-                  <td colSpan="2">@twitter</td>
+                  <td>
+                    <IcoLogo src={product.shopImg[1]} alt="" />
+                  </td>
+                  <td>{product.otherPrice[1][0]}</td>
+                  <td>{product.otherPrice[1][1]}</td>
+                  <td>
+                    <LinkButton
+                      onClick={() => window.open(product.shopLink[1])}
+                      target="_blank"
+                    >
+                      Click to Shop
+                    </LinkButton>
+                  </td>
                 </tr>
+
+                <tr>
+                  <td>
+                    <IcoLogo src={product.shopImg[2]} alt="" />
+                  </td>
+                  <td>{product.otherPrice[2][0]}</td>
+                  <td>{product.otherPrice[2][1]}</td>
+                  <td>
+                    <LinkButton
+                      onClick={() => window.open(product.shopLink[2])}
+                      target="_blank"
+                    >
+                      Click to Shop
+                    </LinkButton>
+                  </td>
+                </tr>
+
+                {/* <tr>
+                  <td>
+                    <IcoLogo src={product.shopImg[3]} alt="" />
+                  </td>
+                  <td>{product.otherPrice[3][0]}</td>
+                  <td>{product.otherPrice[3][1]}</td>
+                  <td>
+                    <LinkButton
+                      onClick={() => window.open(product.shopLink[3])}
+                      target="_blank"
+                    >
+                      Click to Shop
+                    </LinkButton>
+                  </td>
+                </tr> */}
+
               </tbody>
             </Table>
           </InfoContainer>
         </Wrapper>
-        <Newsletter />
+        <Footer/>
+        {/* <Newsletter /> */}
       </Container>
     );
 }
